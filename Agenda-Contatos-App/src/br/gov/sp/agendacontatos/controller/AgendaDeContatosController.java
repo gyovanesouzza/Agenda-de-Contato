@@ -31,7 +31,7 @@ public class AgendaDeContatosController {
 		return retorno;
 	}
 
-	public int alterarContato(int id, ContatoVO contatoVO, JFormattedTextField txtId, JFormattedTextField txtNome,
+	public int alterarContato(int id, JTable table, ContatoVO contatoVO, JFormattedTextField txtId, JFormattedTextField txtNome,
 			JFormattedTextField txtDdd, JFormattedTextField txtTelefone, JLabel lblCampoObrigadorioId,
 			JLabel lblCampoObrigadorioNome, JLabel lblCampoObrigadorioDdd, JLabel lblCampoObrigadorioTelefone)
 			throws SQLException {
@@ -39,6 +39,11 @@ public class AgendaDeContatosController {
 		int retorno = contatoBO.alterarContato(id, contatoVO, txtId, txtNome, txtDdd, txtTelefone,
 				lblCampoObrigadorioId, lblCampoObrigadorioNome, lblCampoObrigadorioDdd, lblCampoObrigadorioTelefone);
 		
+		ContatoTableModel modelo = (ContatoTableModel) table.getModel();
+
+		if(retorno == 1) {
+			limparTabela(table, modelo);
+		}
 		return retorno;
 
 	}

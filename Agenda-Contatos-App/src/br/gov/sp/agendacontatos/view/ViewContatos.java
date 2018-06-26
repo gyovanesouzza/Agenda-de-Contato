@@ -349,7 +349,7 @@ public class ViewContatos extends JFrame {
 				transfererDados(contatoVO);
 				int id = (Integer.parseInt(table.getValueAt(table.getSelectedRow(), 0).toString()));
 
-				if (controller.alterarContato(id, contatoVO, txtId, txtNome, txtDdd, txtTelefone, lblCampoObrigadorioId,
+				if (controller.alterarContato(id,table, contatoVO, txtId, txtNome, txtDdd, txtTelefone, lblCampoObrigadorioId,
 						lblCampoObrigadorioNome, lblCampoObrigadorioDdd, lblCampoObrigadorioTelefone) == 1) {
 					limparCampo();
 					JOptionPane.showMessageDialog(null, "Contato Alterado com sucesso", "Alteração",
